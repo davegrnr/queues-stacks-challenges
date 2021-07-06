@@ -65,13 +65,15 @@ class Queue {
     }
     return false
   }
+
+
 }
 
 let line = new Queue
-// line.enqueue('Dave')
+line.enqueue('Dave')
 // line.enqueue('Charlie')
 // line.enqueue('Roger')
 // line.enqueue('Jackie')
 // console.log(line)
 
-module.exports = Queue;
+// module.exports = Queue;

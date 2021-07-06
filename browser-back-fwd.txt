@@ -1,0 +1,12 @@
+-Initialize a forward stack and a backwards stack.
+
+- When a new URL is visited, push it to backwards stack
+
+-When the forward button is pressed, push the current URL to the backward stack and pop the URL from the forward stack
+
+-Set this as the new URL
+
+-When the backward buttons is pressed, push current URL into the forward stack and pop the last URL from backwards.
+
+-Set this as the new URL
+

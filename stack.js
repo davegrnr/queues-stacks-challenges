@@ -1,5 +1,3 @@
-/** Node: node for a stack. */
-
 class Node {
   constructor(val) {
     this.val = val;
@@ -9,7 +7,6 @@ class Node {
 
 /** Stack: chained-together nodes where you can
  *  remove from the top or add to the top. */
-
 class Stack {
   constructor() {
     this.first = null;
@@ -20,21 +17,34 @@ class Stack {
   /** push(val): add new value to end of the stack. Returns undefined. */
 
   push(val) {
-    let newNode = new Node(val);
+    let node = new Node(val);
 
-    if (this.first === null) {
-      this.first = newNode;
-      this.last = newNode;
+    if (!this.first) {
+      this.first = node;
+      this.last = node;
+    } else {
+      let tmp = this.first;
+      this.first = node;
+      this.first.next = tmp;
     }
 
-    if (this.last !== null) {
-      let prev = this.last;
-      this.last.next = prev;
-      this.first.next = this.first;
-    }
+    this.size++;
 
-    this.first = newNode;
-    this.size += 1;
+    // let newNode = new Node(val);
+
+    // if (this.first === null) {
+    //   this.first = newNode;
+    //   this.last = newNode;
+    // }
+
+    // if (this.last !== null) {
+    //   let prev = this.last;
+    //   this.last.next = prev;
+    //   this.first.next = this.first;
+    // }
+
+    // this.first = newNode;
+    // this.size += 1;
   }
 
   /** pop(): remove the node from the top of the stack
@@ -74,11 +84,18 @@ class Stack {
     }
     return false;
   }
+
+  reverse(){
+    let str = this.pop();
+    let reverseString = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+      reverseString += str[i];
+  }
+  return reverseString;
+  }
 }
 
 let pancakes = new Stack
 pancakes.push('Blueberry')
-pancakes.push('Chocolate chip')
-pancakes.push('Walnut')
 
-module.exports = Stack;
+// module.exports = Stack;

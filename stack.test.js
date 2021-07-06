@@ -9,7 +9,6 @@ beforeEach(function() {
 describe("push", function() {
   it("places the value at the top of the stack and returns undefined", function() {
     expect(stack.push(10)).toBe(undefined);
-    stack.push(10);
     expect(stack.first.val).toBe(10);
     expect(stack.last.val).toBe(10);
     stack.push(100);
